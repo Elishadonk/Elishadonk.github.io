@@ -277,6 +277,31 @@ document.getElementById('editProfile').addEventListener('click',()=>{document.ge
 document.getElementById('profileForm').addEventListener('submit',event=>{event.preventDefault();profile.name=document.getElementById('profileNameInput').value.trim()||'Reader';profile.bio=document.getElementById('profileBioInput').value.trim();writeStorage(STORAGE_KEYS.profile,profile);closeModal('editProfileModal');refreshAll();showToast('Profile updated on this browser.');});
 document.addEventListener('keydown',event=>{if(event.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){event.preventDefault();document.getElementById('searchInput').focus();}if(event.key==='Escape'){document.querySelectorAll('dialog[open]').forEach(d=>d.close());}});
 
+// Reveal major content sections as they enter the viewport. Respects reduced-motion preferences.
+function initMotionEffects() {
+  const targets = document.querySelectorAll(
+    '.trending, .genres-section, .story-shelf, .community-banner, ' +
+    '#discoverView .page-heading, #libraryView .page-heading, #profileView .profile-page'
+  );
+  const reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+
+  targets.forEach(target => {
+    target.classList.add('motion-reveal');
+    observer.observe(target);
+  });
+}
+
 // Ensure every seeded story has independent comment/rating arrays without mutating the templates.
 stories = stories.map(s=>({...s,comments:Array.isArray(s.comments)?s.comments:[],ratingEntries:Array.isArray(s.ratingEntries)?s.ratingEntries:[]}));
 refreshAll();
+initMotionEffects();
