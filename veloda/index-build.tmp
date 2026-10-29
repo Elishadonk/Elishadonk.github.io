@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050c14">
+  <meta name="description" content="VELODA — discover stories, share your imagination, and join the conversation.">
+  <title>VELODA — Stories worth getting lost in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#home" class="brand" aria-label="Veloda home"><span class="brand-mark">V</span><span>VELODA</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-link active" data-view="home"><span class="nav-icon">⌂</span>Home</button>
+      <button class="nav-link" data-view="discover"><span class="nav-icon">⌕</span>Discover</button>
+      <button class="nav-link" data-view="library"><span class="nav-icon">▤</span>Library</button>
+    </nav>
+    <div class="header-tools">
+      <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search stories, genres…" autocomplete="off"><kbd>/</kbd></label>
+      <button class="btn btn-quiet" id="loginButton">Log in</button>
+      <button class="btn btn-green" id="signupButton">Sign up</button>
+    </div>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+  </header>
+
+  <main id="homeView" class="page-view">
+    <section class="hero wrap" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="green-dot"></span> WELCOME TO VELODA</div>
+        <h1>Every story opens<br>a <span>new world.</span></h1>
+        <p>Read amazing stories, discover new genres, and meet unforgettable characters.</p>
+        <div class="hero-actions"><button class="btn btn-green btn-large" data-scroll="trending">Start reading <span>→</span></button><button class="btn btn-outline btn-large" data-scroll="genres">Explore genres</button></div>
+        <div class="hero-social"><div class="mini-avatars"><i>R</i><i>A</i><i>M</i><i>+</i></div><span><strong>Your next favourite is out there.</strong><small>Find it on VELODA.</small></span></div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration of a welcoming story adventurer">
+        <div class="hero-sky-glow"></div><div class="sky-moon"></div><div class="sky-star star-a">✦</div><div class="sky-star star-b">·</div><div class="sky-star star-c">✧</div>
+        <div class="city city-back"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="city city-front"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="welcome-note">Good stories<br>bring people<br>together <span>☺</span></div>
+        <div class="hero-person"><div class="person-hair-back"></div><div class="person-arm person-arm-left"><i></i></div><div class="person-arm person-arm-right"><i></i></div><div class="person-body"><div class="jacket-line"></div><div class="shirt"></div></div><div class="person-neck"></div><div class="person-face"><div class="person-hair"></div><i class="person-eye eye-l"></i><i class="person-eye eye-r"></i><i class="person-blush blush-l"></i><i class="person-blush blush-r"></i><i class="person-mouth"></i></div><div class="person-bag bag-left"></div><div class="person-bag bag-right"></div></div>
+        <div class="float-chip chip-left">✦ Made for dreamers</div><div class="float-chip chip-right">Your story awaits ↗</div>
+      </div>
+    </section>
+
+    <section class="trending wrap section-space" id="trending">
+      <div class="section-title-row"><div><div class="eyebrow">FRESH FROM THE COMMUNITY</div><h2><span class="title-symbol fire">♨</span> Trending story</h2></div><button class="link-button" data
