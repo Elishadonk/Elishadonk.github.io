@@ -72,7 +72,7 @@ function averageRating(story) {
 function showToast(message) { const el = document.getElementById('toast'); el.textContent = message; el.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),2600); }
 function saveIds() { writeStorage(STORAGE_KEYS.saved, savedIds); }
 function getStory(id) { return stories.find(s => s.id === id); }
-function refreshAll() { renderTrending(); renderStoryGrid(); renderDiscover(); renderLibrary(); renderProfile(); updateFeatureSaveButton(); }
+function refreshAll() { renderTrending(); renderStoryGrid(); renderDiscover(); renderLibrary(); renderProfile(); renderHomeShelves(); updateFeatureSaveButton(); }
 function renderTrending() {
   const featured = getStory('moon-between-us') || stories[0];
   if (!featured) return;
@@ -100,6 +100,15 @@ function renderStoryGrid() {
   document.getElementById('emptyState').hidden = list.length > 0;
   document.getElementById('shelfLabel').textContent = `${list.length} ${list.length===1?'story':'stories'}${selectedGenre!=='All'?' · '+selectedGenre:''}${selectedLength!=='All'?' · '+selectedLength+' reads':''}`;
   syncLengthFilters();
+}
+function renderHomeShelves() {
+  const shortStories = stories.filter(s => (s.length || 'Short') === 'Short').slice(0,4);
+  const longStories = stories.filter(s => (s.length || 'Short') === 'Long').slice(0,4);
+  const preferredGenres = ['Romance','Horror','Fantasy','Comedy','Sci-Fi','Mystery'];
+  const categoryStories = preferredGenres.map(g => stories.find(s => s.genre === g)).filter(Boolean).slice(0,4);
+  document.getElementById('shortReadsGrid').innerHTML = shortStories.map(storyCard).join('');
+  document.getElementById('longReadsGrid').innerHTML = longStories.map(storyCard).join('');
+  document.getElementById('categoryPicksGrid').innerHTML = categoryStories.map(storyCard).join('');
 }
 function renderDiscover() {
   const list = stories.filter(s=>matches(s,selectedGenre,searchQuery));
@@ -250,6 +259,11 @@ document.getElementById('uploadForm').addEventListener('submit',async event=>{
   const newStory={id:slugId(),title,genre,tags:[genre],author:profile.name||'Veloda Reader',ownerEmail:profile.email,summary,body,cover:coverData?'custom':(genre==='Horror'?'horror':genre==='Comedy'||genre==='Rom-Com'?'comedy':genre==='Romance'?'romance':genre==='Sci-Fi'?'scifi':genre==='Mystery'?'horror':genre==='Adventure'||genre==='Poetry'?'scifi':'fantasy'),coverData,mark:genre==='Horror'?'☠':genre==='Romance'?'♡':'✦',length,chapterCount,rating:0,reviews:0,reads:0,comments:[],ratingEntries:[],createdAt:Date.now()};
   stories.unshift(newStory); if(!persistStories()){stories=stories.filter(s=>s.id!==newStory.id);return;} closeModal('uploadModal');refreshAll();setView('profile');showToast('Your story was published in this browser prototype!');
 });
+document.querySelectorAll('[data-length-jump]').forEach(button=>button.addEventListener('click',()=>{
+  selectedGenre='All'; selectedLength=button.dataset.lengthJump; searchQuery='';
+  document.getElementById('searchInput').value='';
+  renderDiscover(); setView('discover');
+}));
 document.getElementById('featuredRead').addEventListener('click',()=>openStory('moon-between-us'));
 document.getElementById('featuredSave').addEventListener('click',()=>toggleSaved('moon-between-us'));
 document.getElementById('storyPrev').addEventListener('click',()=>{const track=document.getElementById('miniStoryTrack');track.scrollBy({left:-200,behavior:'smooth'});});
