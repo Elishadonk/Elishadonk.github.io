@@ -46,4 +46,26 @@
     </section>
 
     <section class="trending wrap section-space" id="trending">
-      <div class="section-title-row"><div><div class="eyebrow">FRESH FROM THE COMMUNITY</div><h2><span class="title-symbol fire">♨</span> Trending story</h2></div><button class="link-button" data
+      <div class="section-title-row"><div><div class="eyebrow">FRESH FROM THE COMMUNITY</div><h2><span class="title-symbol fire">♨</span> Trending story</h2></div><button class="link-button" data-view="discover">View all <span>›</span></button></div>
+      <div class="trending-layout">
+        <article class="featured-story" id="featuredStory">
+          <div class="featured-cover cover-moon"><div class="cover-orb"></div><div class="cover-kicker">A VELODA ORIGINAL</div><div class="cover-words">THE MOON<br><em>BETWEEN US</em></div><div class="cover-stars">✦ · ✧ · ✦</div></div>
+          <div class="featured-copy"><div class="pill-row"><span class="pill pill-green">Featured</span><span class="rating">★ <b id="featuredRating">4.9</b></span></div><h3 id="featuredTitle">The Moon Between Us</h3><div class="tag-row"><span>Romance</span><span>Fantasy</span><span>Drama</span></div><p id="featuredSummary">A secret between two worlds. A heart caught in the middle. When their paths collide, nothing will ever be the same again.</p><div class="story-stats"><span>◷ 12 min read</span><span>▤ 8 chapters</span><span class="updating"><i></i> Updating</span></div><div class="featured-actions"><button class="btn btn-green" id="featuredRead">Read now <span>→</span></button><button class="btn btn-outline" id="featuredSave">♡ Add to library</button></div></div>
+        </article>
+        <div class="mini-story-wrap"><button class="carousel-arrow carousel-prev" id="storyPrev" aria-label="Previous stories">‹</button><div class="mini-story-track" id="miniStoryTrack"></div><button class="carousel-arrow carousel-next" id="storyNext" aria-label="Next stories">›</button></div>
+      </div>
+    </section>
+
+    <section class="genres-section section-space" id="genres"><div class="wrap"><div class="section-title-row"><div><div class="eyebrow">FOLLOW YOUR FEELING</div><h2><span class="title-symbol squares">▦</span> Trending genres</h2></div><button class="link-button" data-view="discover">View all <span>›</span></button></div>
+      <div class="genre-grid">
+        <button class="genre-card genre-horror" data-genre="Horror"><span class="genre-art">☠</span><span class="genre-name">Horror</span><span class="genre-sub">Dare to look closer</span></button>
+        <button class="genre-card genre-comedy" data-genre="Comedy"><span class="genre-art">☻</span><span class="genre-name">Comedy</span><span class="genre-sub">A little more laughter</span></button>
+        <button class="genre-card genre-romance" data-genre="Romance"><span class="genre-art">♡</span><span class="genre-name">Romance</span><span class="genre-sub">Feel every heartbeat</span></button>
+        <button class="genre-card genre-scifi" data-genre="Sci-Fi"><span class="genre-art">⪀</span><span class="genre-name">Sci-Fi</span><span class="genre-sub">Beyond this world</span></button>
+        <button class="genre-card genre-romcom" data-genre="Rom-Com"><span class="genre-art">♥</span><span class="genre-name">Romantic comedy</span><span class="genre-sub">Love with a twist</span></button>
+        <button class="genre-card genre-other" data-genre="Other"><span class="genre-art">✧</span><span class="genre-name">Other genres</span><span class="genre-sub">Something unexpected</span></button>
+        <button class="genre-card genre-fantasy" data-genre="Fantasy"><span class="genre-art">✦</span><span class="genre-name">Fantasy</span><span class="genre-sub">Magic and wonder</span></button>
+        <button class="genre-card genre-mystery" data-genre="Mystery"><span class="genre-art">⌕</span><span class="genre-name">Mystery</span><span class="genre-sub">Follow the clues</span></button>
+        <button class="genre-card genre-adventure" data-genre="Adventure"><span class="genre-art">➶</span><span class="genre-name">Adventure</span><span class="genre-sub">Go beyond the map</span></button>
+        <button class="genre-card genre-drama" data-genre="Drama"><span class="genre-art">◌</span><span class="genre-name">Drama</span><span class="genre-sub">Stories that stay</span></button>
+        <button class="genre-card genre-poetry" data-genre="Poetry"><span class="genre-art">❝</span><span class="genre-name">Poetry</span>
