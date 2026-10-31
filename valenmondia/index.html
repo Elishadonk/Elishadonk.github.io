@@ -42,55 +42,26 @@
 }
 
 </style></head><body>
-<header><div class="logo" aria-label="ValenMondia"><span>V</span><span>a</span><span>L</span><span>e</span><span>N</span><span>m</span><span>O</span><span>n</span><span>D</span><span>i</span><span>A</span></div><nav><button onclick="alert('Login prototype coming soon!')">Log In</button><button onclick="alert('Sign Up prototype coming soon!')">Sign Up</button></nav></header>
+<header><div class="brand"><button class="brand-menu" type="button" aria-label="ValenMondia menu" onclick="toggleMenu()"><span></span><span></span><span></span></button><div class="logo" aria-label="ValenMondia"><span>V</span><span>a</span><span>L</span><span>e</span><span>N</span><span>m</span><span>O</span><span>n</span><span>D</span><span>i</span><span>A</span></div></div><nav><button onclick="alert('Login prototype coming soon!')">Log In</button><button onclick="alert('Sign Up prototype coming soon!')">Sign Up</button></nav></header><div class="header-menu" id="menuPanel" hidden><a href="#story">Discover stories</a><a href="#genres">Browse genres</a><button type="button" onclick="alert('My Space profile coming soon!')">My Space</button></div>
 <main><section class="hero"><div><div class="eyebrow">WELCOME TO VALENMONDIA</div><h1>Every story opens<br>a <span>new world.</span></h1><p>Read amazing stories, discover new genres, and meet unforgettable characters. Your next favourite story is waiting.</p></div></section>
 <section class="story" id="story"><div class="story-copy"><div class="story-label">✦ TRENDING STORY HIGHLIGHT</div><h2 id="storyTitle">The Lost Princess</h2><p id="storyDescription">A forgotten princess, a hidden kingdom, and a destiny she never saw coming...</p><button onclick="alert('Story prototype coming soon!')">Read Now →</button></div><div class="castle" aria-hidden="true">🏰</div></section>
 <h2 class="section-title">✦ Trending Genres ✦</h2><p class="genre-hint">SWIPE TO EXPLORE <span>→</span></p><section class="genres" id="genres">
 <div class="genre" onclick="alert('Horror stories coming soon!')"><div class="genre-icon">☠</div><h3>Horror</h3></div><div class="genre" onclick="alert('Comedy stories coming soon!')"><div class="genre-icon">🎭</div><h3>Comedy</h3></div><div class="genre" onclick="alert('Romance stories coming soon!')"><div class="genre-icon">♡</div><h3>Romance</h3></div><div class="genre" onclick="alert('Sci-Fi stories coming soon!')"><div class="genre-icon">✧</div><h3>Sci-Fi</h3></div><div class="genre" onclick="alert('Rom-Com stories coming soon!')"><div class="genre-icon">♥</div><h3>Rom-Com</h3></div><div class="genre" onclick="alert('Animation stories coming soon!')"><div class="genre-icon">✦</div><h3>Animation</h3></div></section>
-<section class="click-area">
-  <div class="menu-wrap">
-    <button class="hamburger-button" id="menuToggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="menu-panel" id="menuPanel" hidden>
-      <a href="#story">Discover stories</a>
-      <a href="#genres">Browse genres</a>
-      <button type="button" onclick="alert('My Space profile coming soon!')">My Space</button>
-    </div>
-    <p class="menu-caption">EXPLORE VALENMONDIA</p>
-  </div>
-</section></main><footer>VALENMONDIA · Read · Dream · Explore</footer>
+<section class="click-area"><div class="click-me"><div class="half" onclick="alert('CLICK prototype coming soon!')"><strong>CLICK</strong><small>DISCOVER STORIES</small></div><div class="half" onclick="alert('ME profile prototype coming soon!')"><strong>ME</strong><small>MY SPACE</small></div></div></section></main><footer>VALENMONDIA · Read · Dream · Explore</footer>
 <script>const stories=[['The Lost Princess','A forgotten princess, a hidden kingdom, and a destiny she never saw coming...'],['Whispers in the Dark','A mysterious secret is waiting to be discovered...'],['Love Beyond Time','Two hearts connected by a story written in the stars...']];let i=0;setInterval(()=>{i=(i+1)%stories.length;document.getElementById('storyTitle').textContent=stories[i][0];document.getElementById('storyDescription').textContent=stories[i][1]},5000);</script>
 
 <style>
-.click-area{display:flex;justify-content:center;margin:48px 0 42px}
-.menu-wrap{display:flex;flex-direction:column;align-items:center;gap:13px;position:relative}
-.hamburger-button{width:76px;height:76px;border-radius:50%;border:1px solid #d9b765;background:linear-gradient(145deg,#174c36,#06180f);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:0;box-shadow:0 10px 28px #0008,0 0 0 5px #d9b76518;transition:transform .25s,box-shadow .25s}
-.hamburger-button:hover{transform:translateY(-3px);box-shadow:0 14px 32px #0009,0 0 0 6px #d9b76528}
-.hamburger-button span{display:block;width:27px;height:2px;border-radius:4px;background:#f7d98b;transition:transform .25s,opacity .25s}
-.hamburger-button[aria-expanded="true"] span:first-child{transform:translateY(8px) rotate(45deg)}
-.hamburger-button[aria-expanded="true"] span:nth-child(2){opacity:0}
-.hamburger-button[aria-expanded="true"] span:last-child{transform:translateY(-8px) rotate(-45deg)}
-.menu-caption{font:600 9px Arial,sans-serif;letter-spacing:2px;color:#c9a85e}
-.menu-panel{position:absolute;z-index:10;top:88px;display:flex;flex-direction:column;gap:4px;min-width:190px;padding:10px;border:1px solid #b99543;border-radius:14px;background:#082719;box-shadow:0 14px 32px #0009}
-.menu-panel[hidden]{display:none}
-.menu-panel a,.menu-panel button{display:block;text-align:left;text-decoration:none;border:0;border-radius:8px;background:transparent;color:#f7e6b5;padding:12px 13px;font:14px Georgia,serif}
-.menu-panel a:hover,.menu-panel button:hover{background:#174c36;color:#f7d98b;transform:none}
-@media(max-width:600px){.click-area{margin:38px 0 30px}.hamburger-button{width:68px;height:68px}}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-menu{width:48px;height:48px;min-width:48px;padding:0;border:1px solid #d9b765;border-radius:50%;background:linear-gradient(145deg,#174c36,#06180f);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;box-shadow:0 5px 16px #0007}
+.brand-menu span{width:19px;height:2px;border-radius:4px;background:#f7d98b}
+.header-menu{position:absolute;z-index:20;top:90px;left:6%;display:flex;flex-direction:column;min-width:190px;padding:9px;border:1px solid #b99543;border-radius:13px;background:#082719;box-shadow:0 14px 30px #0009}
+.header-menu[hidden]{display:none}
+.header-menu a,.header-menu button{display:block;text-align:left;text-decoration:none;border:0;border-radius:8px;background:transparent;color:#f7e6b5;padding:12px;font:14px Georgia,serif}
+.header-menu a:hover,.header-menu button:hover{background:#174c36;color:#f7d98b;transform:none}
+@media(max-width:600px){.brand{justify-content:center;flex-wrap:wrap}.brand-menu{width:42px;height:42px;min-width:42px}.header-menu{top:145px;left:50%;transform:translateX(-50%)}}
 </style>
 <script>
-function toggleMenu(){
- const button=document.getElementById('menuToggle');
- const panel=document.getElementById('menuPanel');
- const opening=button.getAttribute('aria-expanded')!=='true';
- button.setAttribute('aria-expanded',String(opening));
- button.setAttribute('aria-label',opening?'Close menu':'Open menu');
- panel.hidden=!opening;
-}
-document.querySelectorAll('.menu-panel a').forEach(link=>link.addEventListener('click',()=>{
- document.getElementById('menuPanel').hidden=true;
- document.getElementById('menuToggle').setAttribute('aria-expanded','false');
- document.getElementById('menuToggle').setAttribute('aria-label','Open menu');
-}));
+function toggleMenu(){const panel=document.getElementById('menuPanel');panel.hidden=!panel.hidden;}
+document.querySelectorAll('.header-menu a').forEach(link=>link.addEventListener('click',()=>{document.getElementById('menuPanel').hidden=true;}));
 </script>
 </body></html>
